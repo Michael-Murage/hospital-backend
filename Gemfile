@@ -19,7 +19,7 @@ gem "rake"
 # Provides functionality to interact with a SQLite3 database
 # https://github.com/sparklemotion/sqlite3-ruby
 gem "sqlite3"
-gem 'pg'
+# gem 'pg'
 # gem "mysql2"
 
 # Require all files in a folder
