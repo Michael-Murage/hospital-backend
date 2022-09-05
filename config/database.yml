@@ -1,11 +1,23 @@
+# development:
+#   adapter: postgresql
+#   database: db/development.db
+
+# test:
+#   adapter: postgresql
+#   database: db/test.db
+
+# fixed:
+#   adapter: postgresql
+#   database: db/fixed.db
+
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-
+  adapter: postgresql
+  database: db/development
+  
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: postgresql
+  database: db/test
 
-fixed:
-  adapter: sqlite3
-  database: db/fixed.db
+production:
+  adapter: postgresql
+  database: db/production
