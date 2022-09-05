@@ -10,14 +10,59 @@
 #   adapter: postgresql
 #   database: db/fixed.db
 
-development:
-  adapter: postgresql
-  database: db/development
+# development:
+#   adapter: postgresql
+#   database: db/development
   
+# test:
+#   adapter: postgresql
+#   database: db/test
+
+# production:
+#   adapter: postgresql
+#   database: db/production
+
+
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8mb4
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   socket: /var/run/mysqld/mysqld.sock
+
+# development:
+#   <<: *default
+#   username: <%= Rails.application.credentials.database[:username] %>
+#   password: <%= Rails.application.credentials.database[:password] %>
+#   host: localhost
+#   database: app_development
+
+# test:
+#   <<: *default
+#   username: <%= Rails.application.credentials.database[:username] %>
+#   password: <%= Rails.application.credentials.database[:password] %>
+#   host: localhost
+#   database: app_test
+
+# production:
+#   <<: *default
+#   database: app_production
+#   username: app
+#   password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+
+
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
 test:
-  adapter: postgresql
-  database: db/test
+  <<: *default
+  database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  database: db/production
+  <<: *default
+  database: db/production.db
